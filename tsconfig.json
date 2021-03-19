@@ -1,16 +1,19 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es2015",
-        "lib": ["es2015"],
-        "noImplicitAny": false,
-        "outDir": "./dist",
-        "rootDir": "./src",
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "sourceMap": false
+      "target": "es2017",
+      "module": "commonjs",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "outDir": "dist",
+      //"sourceMap": true
     },
+    "files": [
+      "./node_modules/@types/node/index.d.ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
     "exclude": [
-        "node_modules"
+      "node_modules"
     ]
-}
+  }

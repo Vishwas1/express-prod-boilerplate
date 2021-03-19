@@ -1,0 +1,170 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Seans-TypeScript-NodeJS-CRUD-REST-API-Boilerplate",
+        "description": "A minimal and easy to follow example of what you need to create a CRUD style API in NodeJs using TypeScript",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "contact": {
+            "email": "vishwasbhushan001@gmail.com"
+        }
+    },
+    "host": "localhost:5000",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "tags": [{
+        "name": "Employee",
+        "description": "APIs for employess"
+    }],
+    "basePath": "/api/v1",
+    "paths": {
+        "/emp": {
+            "get": {
+                "summary": "Fetches list of employess",
+                "tags": ["Employee"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Employees"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+
+                }
+            },
+            "post": {
+                "summary": "Creates a new employee",
+                "tags": ["Employee"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Employee"
+                    }
+
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Employee"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+
+                }
+            }
+        },
+        "/emp/{id}": {
+            "parameters": [{
+                "in": "path",
+                "name": "id",
+                "required": true,
+                "description": "Id of employee",
+                "type": "string"
+            }],
+            "get": {
+                "summary": "Fetches an employess by id",
+                "tags": ["Employee"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Employee"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+
+                }
+            }
+        }
+    },
+    "definitions": {
+        "id": {
+            "properties": {
+                "uuid": {
+                    "type": "string"
+                }
+            }
+        },
+        "Employee": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "dob": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "role of the employee",
+                    "enum": [
+                        "MANAGER",
+                        "DEVELOPER",
+                        "TESTER"
+                    ]
+                },
+                "fullName": {
+                    "type": "string"
+                }
+            }
+        },
+        "Employees": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Employee"
+            }
+
+        }
+    }
+}

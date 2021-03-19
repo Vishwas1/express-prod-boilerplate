@@ -2,13 +2,13 @@ import {Employee} from '../services/employee';
 
 async function addEmployee(req, res){
     try{
-        const {fName, lName, email, role} =  req.body;
-        if(fName == "" || lName == "" || email == "" || role == "") throw new Error("All fields are mandatory")
+        const {firstName, lastName, email, role} =  req.body;
+        if(firstName == "" || lastName == "" || email == "" || role == "") res.status(400).send("firstName, lastName, email, role fields are mandatory")
         const empObj = new Employee(req.body);
         const newEmp = await empObj.addEmployee();
-        res.status(200).json({newEmp});
+        res.send(newEmp);
     }catch(e){
-        res.status(400).json({error: e.message});
+        res.status(500).send(e.message);
     }
 }
 
@@ -17,13 +17,28 @@ async function getAllEmployee(req, res){
     try{
         const empObj = new Employee({});
         const listOfEmployee = await empObj.fetchAllEmployees();
-        res.status(200).json({listOfEmployee});
-    }catch(e){
-        res.status(400).json({error: e.message});
+        res.send(listOfEmployee);
+    }catch(e){        
+        res.status(400).send(e.message);
     }
 }
 
+async function getEmployeeById(req, res){
+    try{
+        const {id} =  req.params;
+        if(!id) res.status(400).send("Item id is mandatory")
+        
+        const empObj = new Employee({});
+        const listOfEmployee = await empObj.fetchAllEmployees();
+        const emp =  listOfEmployee.filter(x => x.id === id);
+        res.send(emp);
+    }catch(e){        
+        res.status(400).send(e.message);
+    }
+} 
+
 export default {
     addEmployee,
-    getAllEmployee
+    getAllEmployee,
+    getEmployeeById
 }

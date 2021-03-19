@@ -29,7 +29,6 @@ export default class Store {
     findAll(type: Employee | Customer): Promise<Array<Employee | Customer>>{
         return new Promise((resolve, reject) => {
             if(type instanceof Employee){
-                console.log(this.employeeList)
                 resolve(Array.from(this.employeeList.values()));
             }
 

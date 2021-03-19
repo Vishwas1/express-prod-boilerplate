@@ -21,9 +21,9 @@ export class Employee implements IPerson{
   role:Role;
   fullName: string;
   
-  constructor({ fName = "", lName = "", email = "", role = "" } = {}){
-    this.firstName = fName ? fName.trim(): "";
-    this.lastName = lName ? lName.trim(): "";
+  constructor({ firstName = "", lastName = "", email = "", role = "" } = {}){
+    this.firstName = firstName ? firstName.trim(): "";
+    this.lastName = lastName ? lastName.trim(): "";
     this.email = email;
     this.fullName = this.getFullName();
     this.address = "";
@@ -43,7 +43,7 @@ export class Employee implements IPerson{
   }
 
   async addEmployee(){
-    this.empId = 'emp_001';
+    // this.empId = 'emp_001';
     return  await config.db.add(this);
   }
 
