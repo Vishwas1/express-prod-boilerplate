@@ -28,4 +28,4 @@ tsc -w
 - MVC framework
 - Map based store
 - Typescript
-- 
+- Nodemon
