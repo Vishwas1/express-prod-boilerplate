@@ -30,8 +30,9 @@ tsc -w
 - Typescript
 - Nodemon
 - Swagger to implement OpenAPI specification 3.0.0
-
-
+    - http://localhost:5000/api/v1/docs/ 
+- Security
+    -
 
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
 - [API First approach](https://developers.redhat.com/blog/2019/01/14/building-a-node-js-service-using-the-api-first-approach/)
