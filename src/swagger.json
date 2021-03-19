@@ -85,16 +85,16 @@
             }
         },
         "/emp/{id}": {
-            "parameters": [{
-                "in": "path",
-                "name": "id",
-                "required": true,
-                "description": "Id of employee",
-                "type": "string"
-            }],
             "get": {
                 "summary": "Fetches an employess by id",
                 "tags": ["Employee"],
+                "parameters": [{
+                    "in": "path",
+                    "name": "id",
+                    "required": true,
+                    "description": "Id of employee",
+                    "type": "string"
+                }],
                 "responses": {
                     "200": {
                         "description": "OK",
