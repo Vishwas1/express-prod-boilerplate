@@ -1,5 +1,5 @@
 {
-    "name": "types",
+    "name": "ts-express-api-boilerplate",
     "version": "1.0.0",
     "description": "",
     "main": "app.js",
