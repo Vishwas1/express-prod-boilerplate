@@ -1,20 +1,13 @@
-import { Application, Request, Response } from 'express'
-import express = require('express');
-import { Employee } from './employee';
-import { Customer } from './customer';
+import express  from 'express';
+import routes from './routes'
 
-const app: Application = express();
+const app = express();
 
+app.use(express.json());
 
-app.get('/', (req: Request,res: Response) => {
-  const employee =  new Employee('1234','Vishwas Anand');
-  const customer = new Customer('12345', 'Zagg Networks');
-  const foo =  {
-    employee: employee.toString(),
-    customer: customer.toString()
-  }
-  res.json(foo);
-})
+app.use('/api/v1/emp', routes.employee);
+app.use('/api/v1/cust', routes.customer);
+
 
 app.listen(5000, () => console.log('Server running on port 5000') );
 

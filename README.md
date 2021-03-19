@@ -22,3 +22,10 @@ tsc --init
 // constantly watch files
 tsc -w 
 
+
+## Features
+
+- MVC framework
+- Map based store
+- Typescript
+- 
