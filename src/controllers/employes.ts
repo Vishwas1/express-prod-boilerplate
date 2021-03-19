@@ -19,7 +19,7 @@ async function getAllEmployee(req, res){
         const listOfEmployee = await empObj.fetchAllEmployees();
         res.send(listOfEmployee);
     }catch(e){        
-        res.status(400).send(e.message);
+        res.status(500).send(e.message);
     }
 }
 
@@ -33,7 +33,7 @@ async function getEmployeeById(req, res){
         const emp =  listOfEmployee.filter(x => x.id === id);
         res.send(emp);
     }catch(e){        
-        res.status(400).send(e.message);
+        res.status(500).send(e.message);
     }
 } 
 
