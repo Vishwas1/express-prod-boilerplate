@@ -1,38 +1,29 @@
 ## Simple node express server with typecript
 
-```
+```bash
 npm i 
-npm run dev 
+npm run dev  # developement
 npm run build
-npm run start 
+npm run start  #production
 ```
 
-// install typerscript
-```
-sudo npm install -g typerscipt
-
-```
-
-// create ts config
-```
-tsc --init
-
-```
-
-// constantly watch files
-tsc -w 
-
+Note: Create `production.env` for production run
 
 ## Features
 
 - MVC framework
-- Map based store
+- Storage
+    - In memory
 - Typescript
 - Nodemon
+- Logging (`winston`)
+- Environment variable (`dotenv`)
 - Swagger to implement OpenAPI specification 3.0.0
     - http://localhost:5000/api/v1/docs/ 
-- Security
-    -
+- Use process manager  (PM2)
 
-https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
+## References
+
+- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
 - [API First approach](https://developers.redhat.com/blog/2019/01/14/building-a-node-js-service-using-the-api-first-approach/)
+- https://www.freecodecamp.org/news/how-to-write-a-production-ready-node-and-express-app-f214f0b17d8c/
