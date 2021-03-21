@@ -1,5 +1,5 @@
 import { IPerson } from '../models/IPerson';
-import config from '../config';
+import {db} from '../config';
 export enum Role {
   MANAGER, 
   DEVELOPER,
@@ -44,11 +44,11 @@ export class Employee implements IPerson{
 
   async addEmployee(){
     // this.empId = 'emp_001';
-    return  await config.db.add(this);
+    return  await db.add(this);
   }
 
   async fetchAllEmployees(){
-    return await config.db.findAll(this);
+    return await db.findAll(this);
   }
 
 }

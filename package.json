@@ -4,14 +4,15 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "start": "node dist/app.js",
-        "dev": "nodemon src/app.ts",
+        "start": "NODE_ENV=production node dist/app.js",
+        "dev": "NODE_ENV=development nodemon src/app.ts",
         "build": "rimraf dist && tsc -p .",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "swagger-ui-express": "^4.1.6",
         "uuid": "^8.3.2"
@@ -25,6 +26,6 @@
         "nodemon": "^1.19.1",
         "rimraf": "^2.6.3",
         "ts-node": "^8.3.0",
-        "typerscript": "^0.2.3"
+        "typescript": "^4.2.3"
     }
 }
