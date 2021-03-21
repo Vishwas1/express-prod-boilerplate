@@ -15,7 +15,8 @@
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "swagger-ui-express": "^4.1.6",
-        "uuid": "^8.3.2"
+        "uuid": "^8.3.2",
+        "winston": "^3.3.3"
     },
     "devDependencies": {
         "@types/body-parser": "^1.17.0",
