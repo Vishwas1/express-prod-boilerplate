@@ -22,16 +22,20 @@
     "produces": [
         "application/json"
     ],
-    "tags": [{
-        "name": "Employee",
-        "description": "APIs for employess"
-    }],
+    "tags": [
+        {
+            "name": "Employee",
+            "description": "APIs for employess"
+        }
+    ],
     "basePath": "/api/v1",
     "paths": {
         "/emp": {
             "get": {
                 "summary": "Fetches list of employess",
-                "tags": ["Employee"],
+                "tags": [
+                    "Employee"
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -48,22 +52,24 @@
                     "500": {
                         "description": "Internal server error"
                     }
-
                 }
             },
             "post": {
                 "summary": "Creates a new employee",
-                "tags": ["Employee"],
-                "parameters": [{
-                    "in": "body",
-                    "name": "body",
-                    "description": "",
-                    "required": true,
-                    "schema": {
-                        "$ref": "#/definitions/Employee"
+                "tags": [
+                    "Employee"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Employee"
+                        }
                     }
-
-                }],
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -80,21 +86,24 @@
                     "500": {
                         "description": "Internal server error"
                     }
-
                 }
             }
         },
         "/emp/{id}": {
             "get": {
                 "summary": "Fetches an employess by id",
-                "tags": ["Employee"],
-                "parameters": [{
-                    "in": "path",
-                    "name": "id",
-                    "required": true,
-                    "description": "Id of employee",
-                    "type": "string"
-                }],
+                "tags": [
+                    "Employee"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "Id of employee",
+                        "type": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -111,7 +120,6 @@
                     "500": {
                         "description": "Internal server error"
                     }
-
                 }
             }
         }
@@ -164,7 +172,6 @@
             "items": {
                 "$ref": "#/definitions/Employee"
             }
-
         }
     }
 }
