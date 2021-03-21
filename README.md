@@ -16,15 +16,23 @@ Note: Create `production.env` for production run
 - MVC framework
 - Storage
     - In memory
+    - mongo db?
+    - sqlite?
 - Typescript
 - Nodemon
 - Logging (`winston`)
 - Environment variable (`dotenv`)
 - Swagger to implement OpenAPI specification 3.0.0
-    - Approach - API first (swagger)
-- Use process manager  (PM2)
-- Linting (eslint)
-- Bundling (webpack)
+    - Approach - API first (`swagger`)
+- Use process manager  (`PM2`)
+- Linting (`eslint`)
+- Bundling (`webpack`)
+- Containerization (`docker`)
+- Security
+    - Authentication ? 
+    - Authorization ?
+    - Appropriate headers (`helmet`)
+- Testing ?
 
 
 ## References
@@ -35,3 +43,6 @@ Note: Create `production.env` for production run
 - https://medium.com/bb-tutorials-and-thoughts/how-to-write-production-ready-node-js-rest-api-typescript-version-94e993b368c0
 - [Airbnb JavaScript Style Guide()](https://github.com/airbnb/javascript)
 - [Linting in Typescript](https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/)
+- [](https://itnext.io/make-security-on-your-nodejs-api-the-priority-50da8dc71d68)
+- [](https://thinkster.io/tutorials/node-json-api/configuring-middleware-for-authentication)
+- [About helmet](https://helmetjs.github.io/)

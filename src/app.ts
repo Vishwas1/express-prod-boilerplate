@@ -3,9 +3,11 @@ import routes from './routes';
 import swaggerJsDoc = require('./swagger.json');
 import swaggerUi from 'swagger-ui-express';
 import { PORT, baseUrl } from './config';
+import helmet from 'helmet';
 
 const app = express();
 
+app.use(helmet())
 app.use(express.json());
 
 app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerJsDoc))
