@@ -9,7 +9,7 @@ export class Customer implements IPerson{
   address: string;
   dob: string;
   id: string;
-  constructor(custId: string, fullname: string){
+  constructor(custId: string){
     this.custId = custId;
   }
   toString(){

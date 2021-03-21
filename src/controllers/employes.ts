@@ -1,7 +1,8 @@
 import { Employee } from "../services/employee";
 import { logger } from "../config";
+import { Request, Response } from 'express';
 
-async function addEmployee(req, res) {
+async function addEmployee(req: Request, res: Response){
   try {
     const { firstName, lastName, email, role } = req.body;
     if (firstName == "" || lastName == "" || email == "" || role == "")
@@ -17,7 +18,7 @@ async function addEmployee(req, res) {
   }
 }
 
-async function getAllEmployee(req, res) {
+async function getAllEmployee(req: Request, res: Response) {
   try {
     const empObj = new Employee({});
     const listOfEmployee = await empObj.fetchAllEmployees();
@@ -28,7 +29,7 @@ async function getAllEmployee(req, res) {
   }
 }
 
-async function getEmployeeById(req, res) {
+async function getEmployeeById(req: Request, res: Response) {
   try {
     const { id } = req.params;
     if (!id) res.status(400).send("Item id is mandatory");

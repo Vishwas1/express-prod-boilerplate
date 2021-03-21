@@ -30,24 +30,24 @@ export class Employee implements IPerson{
     this.role = role? Role[role] : "";
   }
 
-  toString(){
+  toString(): string{
    return ""
   }
 
-  getAge(){
+  getAge(): number{
     return 0;
   }
 
-  getFullName(){
+  getFullName(): string{
     return this.firstName + ' ' + this.lastName;
   }
 
-  async addEmployee(){
+  async addEmployee(): Promise<any>{
     // this.empId = 'emp_001';
     return  await db.add(this);
   }
 
-  async fetchAllEmployees(){
+  async fetchAllEmployees(): Promise<any>{
     return await db.findAll(this);
   }
 
