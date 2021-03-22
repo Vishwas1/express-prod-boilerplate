@@ -10,9 +10,9 @@ First we plan, in the planning phase you are looking at the whole product withou
 
 - frontend guy start developing the UI, 
 - testers start wrting the test cases 
-- and backend folks, start working on developing APIs parallely. 
+- and backend folks, start working on developing APIs. 
 
-This process is called [API first approach](https://developers.redhat.com/blog/2019/01/14/building-a-node-js-service-using-the-api-first-approach/). I love this approach since it gives me visibility of the whole product before writing too much code!
+All these process happens parallely. This process is called [API first approach](https://developers.redhat.com/blog/2019/01/14/building-a-node-js-service-using-the-api-first-approach/). I love this approach since it gives me visibility of the whole product before writing too much code! Once done, you repeat the whole process if needed.
 
 ## Features
 
