@@ -67,13 +67,14 @@ Note: Create `production.env` for production run
 Build docker image
 ```
 npm run build:prod
-docker build -t ts-boilerplate:v0.1 .  # build an image
+docker build -t ts-boilerplate .  # build an image
 ```
 
 Run container
 ```
-docker run -p 5000:5000 -d ts-boilerplate:v0.1 
+docker run -p 5000:5000 -d ts-boilerplate
 ```
+Note: Create `production.env` for production run
 
 ## References
 
