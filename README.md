@@ -1,4 +1,18 @@
-## Express API for production
+## Express API boilerplate for production
+
+When building REST APIs using node express, it is very easy to get confused as there are so many packages/tools available for different purposes - you do not know which to use and when! In this repository, I tried to consolidate them and use them in example apis with CURD operations. I tried to keep this project (or boilerplate) as close to production, but yeah we know nothing is perfect when it comes to prod deployment but atleast we can give our best. I also believe that, I might have missed out something for sure, which I request you to create an issue, if you find one.
+
+### Some thoughts
+
+Building REST apis are fun, but what I have observed is, when you think from start to end, meaning right from planning about these apis, till the deployment of apis (which ofcouse includes security and other important aspects), it becomes more complex and at the same time more fun. So the question is how do we start?
+
+First we plan, in the planning phase you are looking at the whole product without even building it. Writing APIs specification (ofcoures when you have passed the design phase) could be good starting point. You design the API specifications so that:
+
+- frontend guy start developing the UI, 
+- testers start wrting the test cases 
+- and backend folks, start working on developing APIs parallely. 
+
+This process is called [API first approach](https://developers.redhat.com/blog/2019/01/14/building-a-node-js-service-using-the-api-first-approach/). I love this approach since it gives me visibility of the whole product before writing too much code!
 
 ## Features
 
@@ -12,14 +26,14 @@
     - Framework
         - Nodejs express
         - MVC
-    - Typescript
-    - Node v14.16.0 (npm v6.14.11)
+        - Typescript
+        - Node v14.16.0
+    - Debugging (`nodemon`, `ts-node`)
     - Storage
         - In memory
         - mongo db?
         - sqlite?
-    - Logging (`winston`)
-    - Nodemon
+    - Logging (`winston`)    
     - Environment variable (`dotenv`)
     - Linting (`eslint`)
     - Security
