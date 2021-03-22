@@ -1,6 +1,6 @@
 ## Express API boilerplate for production
 
-When building REST APIs using node express, it is very easy to get confused as there are so many packages/tools available for different purposes - you do not know which to use and when! In this repository, I tried to consolidate them and use them in example apis with CURD operations. I tried to keep this project (or boilerplate) as close to production, but yeah we know nothing is perfect when it comes to prod deployment but atleast we can give our best. I also believe that, I might have missed out something for sure, which I request you to create an issue, if you find one.
+When building REST APIs using node express, it is very easy to get confused as there are so many packages/tools available for different purposes - you do not know which to use and when! In this repository, I tried to consolidate them and use them in example apis with CURD operations. I tried to keep this project (or boilerplate) as close to production as possible, but yeah we know nothing is perfect when it comes to prod deployment but atleast we can give our best. I also believe that, I might have missed out something for sure, which I request you to create an issue, if you find one.
 
 ### Some thoughts
 
