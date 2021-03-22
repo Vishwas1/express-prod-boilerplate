@@ -2,12 +2,18 @@ import Store from "./services/store";
 import dotenv from "dotenv";
 import path from "path";
 import winston from "winston";
+import fs from 'fs';
 
-dotenv.config({
-  path: path.resolve(__dirname, "../", process.env.NODE_ENV + ".env"),
-});
-
-const { HOST, PORT, NODE_ENV, LOG_LEVEL } = process.env;
+// Enviroment  variable
+const envPath = path.resolve(__dirname, "../", process.env.NODE_ENV + ".env");
+if(fs.existsSync(envPath)){
+  dotenv.config({
+    path: envPath,
+  });
+}else{
+  dotenv.config();
+}
+const { HOST , PORT, NODE_ENV, LOG_LEVEL } = process.env;
 
 // Database
 const db = new Store();
