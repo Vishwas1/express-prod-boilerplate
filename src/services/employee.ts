@@ -1,13 +1,7 @@
-import { IPerson } from '../models/IPerson';
-import {db} from '../config';
-export enum Role {
-  MANAGER, 
-  DEVELOPER,
-  TESTER,
-  RESEARCHER
-}
+import EmployeeModel, {IEmployee, Role} from '../models/employee';
+import { v4 as uuidv4 } from 'uuid'; 
 
-export class Employee implements IPerson{
+export class Employee{
   
   empId: string;
   id: string;
@@ -17,38 +11,28 @@ export class Employee implements IPerson{
   email: string;
   address: string;
   dob: string;
-
   role:Role;
-  fullName: string;
   
-  constructor({ firstName = "", lastName = "", email = "", role = "" } = {}){
+  constructor({ firstName = "", lastName = "", email = "", role = "", address = "", dob = "" } = {}){
     this.firstName = firstName ? firstName.trim(): "";
     this.lastName = lastName ? lastName.trim(): "";
     this.email = email;
-    this.fullName = this.getFullName();
-    this.address = "";
-    this.role = role? Role[role] : "";
+    this.address = address;
+    this.role = role? Role[role]: "";
+    this.dob = dob;
+    this.empId = uuidv4();
   }
 
-  toString(): string{
-   return ""
+  async addEmployee(): Promise<IEmployee>{
+    const newEmployee:IEmployee = await EmployeeModel.create({
+      ...this
+    })
+    return newEmployee;
   }
 
-  getAge(): number{
-    return 0;
-  }
-
-  getFullName(): string{
-    return this.firstName + ' ' + this.lastName;
-  }
-
-  async addEmployee(): Promise<any>{
-    // this.empId = 'emp_001';
-    return  await db.add(this);
-  }
-
-  async fetchAllEmployees(): Promise<any>{
-    return await db.findAll(this);
+  async fetchAllEmployees(): Promise<Array<IEmployee>>{
+    const employeeList:Array<IEmployee> = await EmployeeModel.find({});
+    return employeeList;
   }
 
 }

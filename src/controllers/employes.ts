@@ -4,8 +4,8 @@ import { Request, Response } from 'express';
 
 async function addEmployee(req: Request, res: Response){
   try {
-    const { firstName, lastName, email, role } = req.body;
-    if (firstName == "" || lastName == "" || email == "" || role == "")
+    const { firstName, lastName, email, role, dob } = req.body;
+    if (firstName == "" || lastName == "" || email == "" || role == "" || dob == "")
       res
         .status(400)
         .send("firstName, lastName, email, role fields are mandatory");

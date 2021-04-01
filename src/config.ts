@@ -3,6 +3,7 @@ import path from "path";
 import winston from "winston";
 import fs from "fs";
 import { homedir } from "os";
+import mongoose from 'mongoose';
 
 class Configuration {
   private static instace: Configuration;
@@ -14,6 +15,7 @@ class Configuration {
   public logger: winston.Logger;
   private LOG_LEVEL: string;
   public dataDIR: string;
+  private dbConnUrl: string;
 
   private constructor() {}
 
@@ -23,7 +25,7 @@ class Configuration {
       Configuration.instace.setupEnvVar();
       Configuration.instace.setup();
       Configuration.instace.setupLogger();
-      // Configuration.instace.setupDb();
+      Configuration.instace.setupDb();
     }
     return Configuration.instace;
   }
@@ -33,7 +35,7 @@ class Configuration {
     this.PORT = process.env.PORT ? process.env.PORT : "4006";
     this.LOG_LEVEL = process.env.LOG_LEVEL ? process.env.LOG_LEVEL : "info";
     this.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV : "development";
-
+    this.dbConnUrl = process.env.DB_URL;
     this.baseUrl = "http://" + this.HOST + ":" + this.PORT;
 
     this.dataDIR = process.env.DATA_DIR
@@ -91,6 +93,12 @@ class Configuration {
     }
 
     this.logger.info(`Log filepath is set to ${logFilePath}`);
+  }
+
+  private async setupDb(){
+    await mongoose.connect(this.dbConnUrl, 
+    {useNewUrlParser: true, useUnifiedTopology: true })
+    this.db = mongoose.connection;
   }
 
   // private setupDb() {
