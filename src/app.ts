@@ -2,7 +2,7 @@ import express  from 'express';
 import routes from './routes';
 import swaggerJsDoc = require('./swagger.json');
 import swaggerUi from 'swagger-ui-express';
-import { PORT, baseUrl } from './config';
+import { PORT, baseUrl, logger, db } from './config';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import xss from 'xss-clean';
@@ -28,3 +28,10 @@ app.use('/api/v1/cust', routes.customer);
 app.listen(PORT, () => console.log('Server is running @ ' + baseUrl));
 
 
+// process.on('SIGTERM', () => {
+//   console.log("");
+  
+//   logger.error('SIGTERM signal received.');
+//   logger.error('Gracefully closing the database connection')
+//   db.close();
+// });
