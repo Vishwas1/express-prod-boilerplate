@@ -30,9 +30,7 @@ All these process happens parallely. This process is called [API first approach]
         - Node v14.16.0
     - Debugging (`nodemon`, `ts-node`)
     - Storage
-        - In memory
-        - mongo db?
-        - sqlite?
+        - mongo db        
     - Logging (`winston`)    
     - Environment variable (`dotenv`)
     - Linting (`eslint`)
@@ -98,4 +96,4 @@ Note: Create `production.env` for production run
 ## References
 
 [Production deployment - by mozilla](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment) | [API First approach](https://developers.redhat.com/blog/2019/01/14/building-a-node-js-service-using-the-api-first-approach/) | [production-ready-node-and-express-app-](https://www.freecodecamp.org/news/how-to-write-a-production-ready-node-and-express-app-f214f0b17d8c/)
-| [production-ready-node-js-rest-api-typescrip - blog](https://medium.com/bb-tutorials-and-thoughts/how-to-write-production-ready-node-js-rest-api-typescript-version-94e993b368c0) | [Airbnb JavaScript Style Guide()](https://github.com/airbnb/javascript) | [Linting in Typescript](https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/) | [security-on-your-nodejs-api](https://itnext.io/make-security-on-your-nodejs-api-the-priority-50da8dc71d68) | [configuring-middleware-for-authentication](https://thinkster.io/tutorials/node-json-api/configuring-middleware-for-authentication) | [About helmet](https://helmetjs.github.io/) | [Good repo to follow](https://github.com/microverseinc/project-nodejs-rest-api) | [Docker publish vs expose](https://www.whitesourcesoftware.com/free-developer-tools/blog/docker-expose-port/) | [make your NodeJS application or API secure](https://itnext.io/make-security-on-your-nodejs-api-the-priority-50da8dc71d68)
+| [production-ready-node-js-rest-api-typescrip - blog](https://medium.com/bb-tutorials-and-thoughts/how-to-write-production-ready-node-js-rest-api-typescript-version-94e993b368c0) | [Airbnb JavaScript Style Guide()](https://github.com/airbnb/javascript) | [Linting in Typescript](https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/) | [security-on-your-nodejs-api](https://itnext.io/make-security-on-your-nodejs-api-the-priority-50da8dc71d68) | [configuring-middleware-for-authentication](https://thinkster.io/tutorials/node-json-api/configuring-middleware-for-authentication) | [About helmet](https://helmetjs.github.io/) | [Good repo to follow](https://github.com/microverseinc/project-nodejs-rest-api) | [Docker publish vs expose](https://www.whitesourcesoftware.com/free-developer-tools/blog/docker-expose-port/) | [make your NodeJS application or API secure](https://itnext.io/make-security-on-your-nodejs-api-the-priority-50da8dc71d68) | [Gracefully shutdown handling](https://hackernoon.com/graceful-shutdown-in-nodejs-2f8f59d1c357) | [Using sqeuelize](https://sequelize.org/master/manual/model-basics.html) | [Learn Typescript](https://www.typescriptlang.org/docs/) | [setup-typecript-sequelize](https://vivacitylabs.com/setup-typescript-sequelize/) | [strongly-typed-models-with-mongoose-and-typescript](https://tomanagle.medium.com/strongly-typed-models-with-mongoose-and-typescript-7bc2f7197722)
