@@ -96,36 +96,16 @@ class Configuration {
   }
 
   private async setupDb(){
-    await mongoose.connect(this.dbConnUrl, 
-    {useNewUrlParser: true, useUnifiedTopology: true })
+    await mongoose.connect(
+      this.dbConnUrl, 
+    { 
+      useNewUrlParser: true, 
+      useUnifiedTopology: true,
+      useCreateIndex: true
+    })
     this.db = mongoose.connection;
   }
 
-  // private setupDb() {
-  //   const dbDIR = path.join(this.dataDIR, "./db");
-  //   if (!fs.existsSync(dbDIR)) fs.mkdirSync(dbDIR);
-
-  //   let dbFileName =
-  //     process.env.DB_INMEM === "true" ? ":memory:" : "boilerplate.db";
-  //   let dbFilePath;
-
-  //   if (!dbFileName || dbFileName == "") {
-  //     this.logger.info("No dbfilepath provided, using in-memory database");
-  //     dbFilePath = ":memory:";
-  //   } else {
-  //     dbFilePath = path.join(dbDIR, dbFileName);
-  //   }
-
-  //   // Creating a new db if it does not exists
-  //   this.db = new sqlite.Database(dbFilePath, (err) => {
-  //     if (err) {
-  //       return this.logger.error(err.message);
-  //     }
-  //     this.logger.info(
-  //       `Connected to SQLLite database, dbFilePath = ${dbFilePath}`
-  //     );
-  //   });
-  // }
 }
 
 const {

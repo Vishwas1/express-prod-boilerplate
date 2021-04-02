@@ -1,8 +1,8 @@
 import employee from './employee'
-import customer from './customer'
+import user from './user'
 
 export default {
     employee,
-    customer
+    user
 }
 

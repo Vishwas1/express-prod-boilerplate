@@ -22,8 +22,8 @@ app.use(xss())
 app.use(express.json({ limit: '10kb' }));
 
 app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerJsDoc))
+app.use('/api/v1/user', routes.user);
 app.use('/api/v1/emp', routes.employee);
-app.use('/api/v1/cust', routes.customer);
 
 app.listen(PORT, () => console.log('Server is running @ ' + baseUrl));
 

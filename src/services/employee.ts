@@ -1,4 +1,4 @@
-import EmployeeModel, {IEmployee, Role} from '../models/employee';
+import EmployeeModel, {IEmployee, Role} from '../models/employee.model';
 import { v4 as uuidv4 } from 'uuid'; 
 
 export class Employee{
