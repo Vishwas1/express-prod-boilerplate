@@ -5,3 +5,4 @@ production.env
 *.log
 db
 data
+hypersign.json

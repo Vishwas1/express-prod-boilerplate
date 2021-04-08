@@ -1,23 +1,25 @@
 import { Router } from "express";
 import EmployeeController from "../controllers/employes";
 
-const router = Router();
+export default (hypersign) => {
+  const router = Router();
 
-router.post("/", EmployeeController.addEmployee);
+  router.post("/", hypersign.authorize.bind(hypersign), EmployeeController.addEmployee);
 
-// Update
-router.put("/", (req, res) => {
+  // Update
+  router.put("/", hypersign.authorize.bind(hypersign), (req, res) => {
     res.json({ message: "Hello World" });
-});
+  });
 
-// Retrive
-router.get("/", EmployeeController.getAllEmployee);
-// Retrive
-router.get("/:id", EmployeeController.getEmployeeById);
+  // Retrive
+  router.get("/", hypersign.authorize.bind(hypersign), EmployeeController.getAllEmployee);
+  // Retrive
+  router.get("/:id", hypersign.authorize.bind(hypersign), EmployeeController.getEmployeeById);
 
-// Delete
-router.delete("/", (req, res) => {
-  res.json({ message: "Hello World" });
-});
+  // Delete
+  router.delete("/", hypersign.authorize.bind(hypersign), (req, res) => {
+    res.json({ message: "Hello World" });
+  });
 
-export default router;
+  return router;
+};

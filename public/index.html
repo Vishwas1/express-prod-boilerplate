@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.qrcode@1.0.3/jquery.qrcode.min.js"></script>
+    <title>Hypersign Login Demo</title>
+</head>
+
+<body>
+    <div align="center">
+        <h1>Login With QR Code</h1>
+        <div id="qrcode">
+            <img src='/images/loader.gif' />
+        </div>
+        <a href="/register">Register</a>
+        <div id="profile"></div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        initiate();
+
+    });
+
+    function formattedMessage(m) {
+        return JSON.stringify({
+            type: 'client',
+            message: m
+        })
+    }
+
+    function initiate() {
+        let clientId = Math.floor(Math.random(10) * 100);
+        window.WebSocket = window.WebSocket || window.MozWebSocket;
+        if (!window.WebSocket) {
+            alert('Sorry, but your browser doesn\'t support WebSocket.')
+            return;
+        }
+
+        let ws = new WebSocket(`ws://${window.location.host}`);
+        ws.onopen = function() {};
+
+        ws.onmessage = function({
+            data
+        }) {
+            let messageData = JSON.parse(data);
+            console.log(messageData)
+            $("#qrcode").html("");
+            $('#profile').html('');
+            if (messageData.op == 'init') {
+                $("#qrcode").qrcode({
+                    "width": 300,
+                    "height": 300,
+                    "text": messageData.data
+                });
+            } else if (messageData.op == 'end') {
+                ws.close();
+                $("#qrcode").hide();
+                const authorizationToken = messageData.data.token
+                const url = `http://${window.location.host}/api/v1/user/protected`
+                console.log(url)
+                fetch(url, {
+                        headers: {
+                            'Authorization': 'Bearer ' + authorizationToken
+                        },
+                        method: "POST"
+                    }).then(res => res.json())
+                    .then(json => {
+                        if (json.status == 403) {
+                            console.log('eroor 403')
+                        } else {
+                            console.log(json.message);
+                            $('#profile').html(JSON.stringify(json.message))
+
+                        }
+                    })
+                    .catch((e) => {
+                        console.log(e)
+                    })
+            }
+        };
+
+        ws.onerror = function(error) {};
+
+    }
+</script>
+
+</html>
