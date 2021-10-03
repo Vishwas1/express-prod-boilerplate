@@ -17,7 +17,7 @@
     "dependencies": {
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
-        "express-rate-limit": "^5.2.6",
+        "express-rate-limit": "^5.3.0",
         "helmet": "^4.4.1",
         "mongoose": "^5.12.3",
         "swagger-ui-express": "^4.1.6",
