@@ -19,7 +19,7 @@
         "express": "^4.17.1",
         "express-rate-limit": "^5.2.6",
         "helmet": "^4.4.1",
-        "mongoose": "^5.12.3",
+        "mongoose": "^5.13.3",
         "swagger-ui-express": "^4.1.6",
         "uuid": "^8.3.2",
         "winston": "^3.3.3",
